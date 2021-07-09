@@ -6,9 +6,9 @@ runs:
     - run: |
         if [[ $GITHUB_REF == refs/tags/* ]]; then \
             REF="${GITHUB_REF#refs/*/}"; \
-        else \ \
+        else \
             REF="${GITHUB_SHA:0:8}"; \
         fi; \
-        echo "setting version as ${REF}" \
+        echo "setting version as ${REF}" && \
         echo "::set-output name=version::${REF}"
       shell: bash
