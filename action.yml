@@ -1,5 +1,9 @@
 name: Tag or Commit Action
 description: Outputs tag or commit
+outputs:
+  version:
+    description: "Tag or commit"
+    value: ${{ steps.script.outputs.versiom }}
 runs:
   using: 'composite'
   steps:
@@ -10,5 +14,6 @@ runs:
             REF="${GITHUB_SHA:0:8}"; \
         fi; \
         echo "setting version as ${REF}" && \
-        echo "::set-output name=version::$(echo $REF)"
+        echo "::set-output name=version::${REF}"
+      id: script
       shell: bash
