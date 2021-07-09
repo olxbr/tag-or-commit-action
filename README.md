@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: olxbr/tag-or-commit-action@v0.0.7
+      - uses: olxbr/tag-or-commit-action@v0.0.8
         id: release
 
       - run: echo ${{ steps.release.outputs.version }}

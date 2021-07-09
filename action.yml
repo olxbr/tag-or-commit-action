@@ -10,5 +10,5 @@ runs:
             REF="${GITHUB_SHA:0:8}"; \
         fi; \
         echo "setting version as ${REF}" && \
-        echo "::set-output name=version::${REF}"
+        echo "::set-output name=version::$(echo $REF)"
       shell: bash
