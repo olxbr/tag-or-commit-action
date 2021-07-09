@@ -2,7 +2,7 @@
 
 Action to outputs tag or commit.
 
-Whith this you can use same variable to deploy om MRs, branchs and tags.
+With this you can use same variable to deploy on PRs, branches and tags.
 
 ### Usage
 
