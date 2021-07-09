@@ -1,5 +1,8 @@
 name: Release new action version
 on:
+  push:
+    tags:
+      - '*'
   release:
     types: [released]
   workflow_dispatch:
