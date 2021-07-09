@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: olxbr/tag-or-commit-action@v0.0.1
+      - uses: olxbr/tag-or-commit-action@v0.0.3
         id: release
 
       - run: echo ${{ steps.release.outputs.version }}
@@ -34,7 +34,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: olxbr/tag-or-commit-action@v0.0.2
+      - uses: olxbr/tag-or-commit-action@v0.0.3
         id: release
         with:
           outputs_to: xumbrela
