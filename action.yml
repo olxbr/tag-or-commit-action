@@ -1,0 +1,12 @@
+name: Tag or Commit Action
+description: Outputs tag or commit
+inputs:
+  outputs_to:
+    description: Name variavel to output to
+    default: version
+    required: false
+runs:
+  using: 'composite'
+  steps:
+    - run: ${{ github.action_path }}/entrypoint.sh
+      shell: bash
