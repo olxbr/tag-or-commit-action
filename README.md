@@ -16,28 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: olxbr/tag-or-commit-action@v0.0.3
+      - uses: olxbr/tag-or-commit-action@v0.0.4
         id: release
 
       - run: echo ${{ steps.release.outputs.version }}
-```
-
-### Usage renaming output
-
-```yaml
-on: [push]
-
-jobs:
-  ecr:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - uses: olxbr/tag-or-commit-action@v0.0.3
-        id: release
-        with:
-          outputs_to: xumbrela
-
-      - run: echo ${{ steps.release.outputs.xumbrela }}
 ```
