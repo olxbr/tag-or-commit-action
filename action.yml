@@ -3,7 +3,7 @@ description: Outputs tag or commit
 outputs:
   version:
     description: "Tag or commit"
-    value: ${{ steps.script.outputs.versiom }}
+    value: ${{ steps.script.outputs.version }}
 runs:
   using: 'composite'
   steps:
