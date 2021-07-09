@@ -6,4 +6,4 @@ else \
     REF="${GITHUB_SHA:0:8}";
 fi;
 
-echo ::set-output name=${outputs_to}::${REF}
+echo ::set-output name=${OUTPUTS_TO}::${REF}
