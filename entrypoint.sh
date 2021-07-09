@@ -6,4 +6,5 @@ else \
     REF="${GITHUB_SHA:0:8}";
 fi;
 
-echo ::set-output name=version::${REF}
+echo "setting version as ${REF}"
+echo "::set-output name=version::${REF}"
