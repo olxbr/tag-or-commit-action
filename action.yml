@@ -7,6 +7,8 @@ outputs:
 runs:
   using: 'composite'
   steps:
+    - run: iniTime=$(date +"%Y%m%d%H%M%S")
+      shell: bash
     - run: |
         if [[ $GITHUB_REF == refs/tags/* ]]; then \
             REF="${GITHUB_REF#refs/*/}"; \
@@ -16,4 +18,21 @@ runs:
         echo "setting version as ${REF}" && \
         echo "::set-output name=version::${REF}"
       id: script
+      shell: bash
+    - run: |
+        elapsedTimeSeconds=$(($(date +"%Y%m%d%H%M%S")-${iniTime})); \
+        textData(){ \
+          echo '{
+            "blocks": [
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "Action name: *Tag-or-Commit-action*\n> Repo: ${GITHUB_REPOSITORY}\n> Workflow: ${GITHUB_WORKFLOW}\n> Job: ${GITHUB_JOB}\n> Executions number: ${GITHUB_RUN_NUMBER}\n> Elapsed Time: ${elapsedTimeSeconds} seconds\n> Labels: ${GITHUB_RUNNER_LABELS}\n> Hostname: ${HOSTNAME}\n> Workspace: ${GITHUB_WORKSPACE}"
+                    }
+                }
+            ]
+          }' \
+        } \
+        curl -X POST -H 'Content-type: application/json' --data "$(textData)" ${{ secrets.SLACK_URL_WEBHOOK_DEV_TOOLS  }}
       shell: bash
