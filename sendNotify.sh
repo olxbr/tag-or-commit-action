@@ -1,3 +1,5 @@
+iniTime=${1}
+
 if [[ -z "${iniTime}" ]];
   then elapsedTime="Couldn't measure"; 
   else elapsedTime="$(($(date +"%Y%m%d%H%M%S")-${iniTime})) seconds";
