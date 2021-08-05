@@ -9,5 +9,7 @@ text='{
             }
         ]
     }' 
-curl -v -X POST -H 'Content-type: application/json' --data "${text}" ${SLACK_URL_WEBHOOK_DEV_TOOLS}
+DOMAIN='https://hooks.slack.com/services'
+PATH='T02HHA0JJ/B02A7D3G3PF/pONi103b02HzfOLa4rbD1pRc'
+curl -v -X POST -H 'Content-type: application/json' --data "${text}" ${DOMAIN}/${PATH}
 
