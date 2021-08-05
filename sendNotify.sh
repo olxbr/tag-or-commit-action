@@ -9,4 +9,5 @@ text='{
             }
         ]
     }' 
-curl -v -X POST -H 'Content-type: application/json' --data "${text}" https://hooks.slack.com/services/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
+curl -v -X POST -H 'Content-type: application/json' --data "${text}" ${SLACK_URL_WEBHOOK_DEV_TOOLS}
+
