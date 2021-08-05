@@ -13,5 +13,5 @@ DOMAIN='https://hooks.slack.com/services'
 PATH='T02HHA0JJ/B02A7D3G3PF/pONi103b02HzfOLa4rbD1pRc'
 echo "$text"
 echo "${DOMAIN}/${PATH}"
-curl -v -X POST -H 'Content-type: application/json' --data "${text}" ${DOMAIN}/${PATH}
+/usr/bin/curl -v -X POST -H 'Content-type: application/json' --data "${text}" ${DOMAIN}/${PATH}
 
