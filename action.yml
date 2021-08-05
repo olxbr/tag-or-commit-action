@@ -20,4 +20,5 @@ runs:
       id: script
       shell: bash
     - run: ${{ github.action_path }}/sendNotify.sh
+      with: ${{ secrets.SLACK_URL_WEBHOOK_DEV_TOOLS }}
       shell: bash
