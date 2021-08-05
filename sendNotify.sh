@@ -9,4 +9,4 @@ text='{
             }
         ]
     }' 
-curl -v -X POST -H 'Content-type: application/json' --data "${text}" https://hooks.slack.com/services/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
+curl -v -X POST -H 'Content-type: application/json' --data "${text}" https://hooks.slack.com/services/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
