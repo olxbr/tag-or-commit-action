@@ -11,7 +11,7 @@ TEXT='{
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": "Action name: *Tag-or-Commit-action*\n> _Repo_: '${GITHUB_REPOSITORY}'\n> _Workflow_: '${GITHUB_WORKFLOW}'\n> _Job_: '${GITHUB_JOB}'\n> _Execution number_: '${GITHUB_RUN_NUMBER}'\n> _Elapsed Time_: '${elapsedTime}'\n> _Labels_: '${GITHUB_RUNNER_LABELS}'\n> _Hostname_: '${HOSTNAME}'\n> _Workspace_: '${GITHUB_WORKSPACE}'\n\n"
+                    "text": "Action name: *Tag-or-Commit-action*\n> _Repo_: <https://github.com/'${GITHUB_REPOSITORY}'|'${GITHUB_REPOSITORY}'>\n> _Workflow_: '${GITHUB_WORKFLOW}'\n> _Job_: '${GITHUB_JOB}'\n> _Execution number_: '${GITHUB_RUN_NUMBER}'\n> _Elapsed Time_: '${elapsedTime}'\n> _Labels_: '${GITHUB_RUNNER_LABELS}'\n> _Hostname_: '${HOSTNAME}'\n> _Workspace_: '${GITHUB_WORKSPACE}'\n\n"
                 }
             }
         ]
