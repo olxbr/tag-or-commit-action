@@ -7,7 +7,8 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - run: iniTime=$(date +"%Y%m%d%H%M%S")
+    - run: echo "::set-output name=iniTime::$(date +'%Y%m%d%H%M%S')"
+      id: action-started
       shell: bash
     - run: |
         if [[ $GITHUB_REF == refs/tags/* ]]; then \
@@ -19,5 +20,5 @@ runs:
         echo "::set-output name=version::${REF}"
       id: script
       shell: bash
-    - run: ${{ github.action_path }}/sendNotify.sh
+    - run: ${{ github.action_path }}/sendNotify.sh ${{ steps.action-started.outputs.iniTime }}
       shell: bash
