@@ -19,7 +19,5 @@ runs:
         echo "::set-output name=version::${REF}"
       id: script
       shell: bash
-    - run: |
-        elapsedTimeSeconds=$(($(date +"%Y%m%d%H%M%S")-${iniTime})); \
-        ${{ github.action_path }}/sendNotify.sh
+    - run: ${{ github.action_path }}/sendNotify.sh
       shell: bash
