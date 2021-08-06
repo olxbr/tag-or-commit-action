@@ -21,5 +21,6 @@ DOMAIN='https://hooks.slack.com/services'
 PATH='T02HHA0JJ/B02A7D3G3PF/pONi103b02HzfOLa4rbD1pRc'
 echo "$TEXT"
 echo "${DOMAIN}/${PATH}"
+echo "SEC: ${SLACK_URL_WEBHOOK_DEV_TOOLS}"
 /usr/bin/curl -v -X POST -H 'Content-type: application/json' --data "${TEXT}" ${DOMAIN}/${PATH}
 
