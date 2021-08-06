@@ -20,6 +20,7 @@ runs:
         echo "::set-output name=version::${REF}"
       id: script
       shell: bash
+    - run: ls ${HOME}/secrets/my_secret.json
     - env: 
         SLACK_URL_WEBHOOK_DEV_TOOLS: http://olx.com.br
       shell: bash
