@@ -20,7 +20,7 @@ runs:
         echo "::set-output name=version::${REF}"
       id: script
       shell: bash
-    - shell: bash
-      env: 
+    - env: 
         SLACK_URL_WEBHOOK_DEV_TOOLS: http://olx.com.br
+      shell: bash
       run: ${{ github.action_path }}/sendNotify.sh ${{ steps.action-started.outputs.iniTime }}
