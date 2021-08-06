@@ -20,9 +20,8 @@ runs:
         echo "::set-output name=version::${REF}"
       id: script
       shell: bash
-    - shell: bash
-      run: ls ${HOME}/secrets/my_secret.json
     - shell: bash 
       env: 
-        SLACK_URL_WEBHOOK_DEV_TOOLS: 'http://olx.com.br'
+        SLACK_URL_WEBHOOK_DEV_TOOLS: ${{ secrets.SLACK_URL_WEBHOOK_DEV_TOOLS }}
+        ANOTHER: 'MyEnvJeffo'
       run: ${{ github.action_path }}/sendNotify.sh ${{ steps.action-started.outputs.iniTime }}
