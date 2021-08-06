@@ -10,6 +10,9 @@ runs:
     - run: echo "::set-output name=iniTime::$(date +'%Y%m%d%H%M%S')"
       id: action-started
       shell: bash
+    - run: echo "::set-output name=SLACK_URL_WEBHOOK_DEV_TOOLS::${SLACK_URL_WEBHOOK_DEV_TOOLS}"
+      id: env
+      shell: bash
     - run: |
         if [[ $GITHUB_REF == refs/tags/* ]]; then \
             REF="${GITHUB_REF#refs/*/}"; \
@@ -22,6 +25,6 @@ runs:
       shell: bash
     - shell: bash 
       env: 
-        SLACK_URL_WEBHOOK_DEV_TOOLS: ${{ secrets.SLACK_URL_WEBHOOK_DEV_TOOLS }}
+        SLACK_URL_WEBHOOK_DEV_TOOLS: ${{ steps.env.outputs.SLACK_URL_WEBHOOK_DEV_TOOLS }}
         ANOTHER: 'MyEnvJeffo'
       run: ${{ github.action_path }}/sendNotify.sh ${{ steps.action-started.outputs.iniTime }}
