@@ -22,5 +22,5 @@ runs:
       shell: bash
     - shell: bash
       env: 
-        SLACK_URL_WEBHOOK_DEV_TOOLS: ${{ SLACK_URL_WEBHOOK_DEV_TOOLS }}
+        SLACK_URL_WEBHOOK_DEV_TOOLS: ${{ secrets.SLACK_URL_WEBHOOK_DEV_TOOLS }}
       run: ${{ github.action_path }}/sendNotify.sh ${{ steps.action-started.outputs.iniTime }}
