@@ -19,8 +19,6 @@ jobs:
       - name: Submit Gitleaks metrics
         run: |
           ENDPOINT=$(echo "${{ secrets.GH_METRICS_SERVER_ENDPOINT }}" | awk -F/ '{print $3}')
-          RESULT='${{ steps.gitleaks.outputs.result }}'
-          RESULT=${RESULT/\'/\`}
           DATA=$( \
           jq -n \
           --arg GITHUB_WORKFLOW "$GITHUB_WORKFLOW" \
@@ -29,7 +27,7 @@ jobs:
           --arg GITHUB_SHA "$GITHUB_SHA" \
           --arg GITHUB_REPOSITORY "$GITHUB_REPOSITORY" \
           --arg GITLEAKS_EXIT_CODE "${{ steps.gitleaks.outputs.exit_code }}" \
-          --argjson GITLEAKS_RESULT RESULT \
+          --argjson GITLEAKS_RESULT '${{ steps.gitleaks.outputs.result }}' \
           '{
               "workflow_job": {
                 "name": $GITHUB_WORKFLOW,
